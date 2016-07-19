@@ -158,19 +158,6 @@ file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$tok
 
 
 
-function SendMessage($date){
- $options = array(
-          'http' => array(
-             'method' => 'POST',
-             'content' => json_encode($date),
-             'header' => "Content-Type: application/json"
-             )
- );
-
-$context = stream_context_create($options);
-file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token",true, $context);
-}
-
 
 
 
