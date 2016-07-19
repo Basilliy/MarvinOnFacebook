@@ -17,8 +17,8 @@ $id = $fb[entry][0][messaging][0][sender]id;
 $token = 'EAAXK3CoMH0QBAM3gZClSKzVcMLnL4uVvvUJG7wQaifTjgN65T2F8SmftMLJyD3uZCky02NA0bLjzEdfzhYc3TUY4HO8WkyqMZBZBdXD0P7BQlzge9CwZAZCZCDAybdGSyyoKJqRF1Rqj5nE723f5v8TqIawkWph7zeJdXxkYqUTnZCz7FHLLY59O';
 
 $data = array(
-      'recipient' => array('id' => '$id' ),
-      'message' => array('text' => 'russik')
+      'recipient' => array('id' => "$id" ),
+      'message' => array('text' => "russik")
  );
 
 $options = array(
@@ -31,5 +31,5 @@ $options = array(
 
 $contex = stream_context_create('$options');
 
-file_get_contents("https://graph.facebook.com/v2.6/me/messages?access_token=$token", false, $context);
+file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token", false, $context);
 
