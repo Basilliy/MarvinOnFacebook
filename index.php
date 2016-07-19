@@ -38,7 +38,7 @@ $keyboard = array(
 $data = array(
       'recipient' => array('id' => "$id" ),
       'message' => array("text" => "Pick a color",
-                         "quick_replies" => "$keyboard"
+                         "quick_replies" => json_encode($keyboard)
                           )
  );
 
