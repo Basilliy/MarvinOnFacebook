@@ -39,7 +39,7 @@ $buttonDE = array(
         "title" => "de",
         "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_EN"
  );
-$keyboardSet =[$buttonEN, $buttonDE ];
+$keyboardSet =[$buttonEN, $buttonDE];
 
 
 $keyboard = array(
@@ -52,7 +52,7 @@ $keyboard = array(
 $data = array(
       'recipient' => array('id' => "$id" ),
       'message' => array("text" => "$fuck",
-                         "quick_replies" => "$keyboardSet"
+                         "quick_replies" => json_encode($keyboardSet)
                           )
  );
 
