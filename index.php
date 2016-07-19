@@ -24,7 +24,7 @@ $token = "EAAXK3CoMH0QBAM3gZClSKzVcMLnL4uVvvUJG7wQaifTjgN65T2F8SmftMLJyD3uZCky02
 if($message=='en'){
 $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
 }
-if($message=='de'){
+else{
 $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
 }
 
@@ -41,5 +41,6 @@ $options = array(
              )
  );
 
+$context = stream_context_create($options);
 
 file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token",false, $context);
