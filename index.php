@@ -9,7 +9,11 @@
 //if (!empty($_REQUEST['hub_mode']) && $_REQUEST['hub_mode'] == 'subscribe' && $_REQUEST['hub_verify_token'] == $verify_token) { 
 //echo $_REQUEST['hub_challenge']; 
 //}
-
+    // Webhook setup request
+if (!empty($_REQUEST['hub_mode']) && $_REQUEST['hub_mode'] == 'subscribe') {
+    // Webhook setup request
+    echo $_REQUEST['hub_challenge'];
+} else {
 file_put_contents("fb.txt",file_get_contents("php://input"));
 $fb = file_get_contents("fb.txt");
 $fb = json_decode($fb);
@@ -32,6 +36,6 @@ $options = array(
  );
 
 $context = stream_context_create($options);
-if($id!=$reid){
+
 file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token",false, $context);
 }
