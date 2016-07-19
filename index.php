@@ -17,9 +17,17 @@ $fb = json_decode($fb);
 //$fb = json_decode(file_get_contents("php://input"), true);
 $id = $fb->entry[0]->messaging[0]->sender->id;
 $reid = $fb->entry[0]->messaging[0]->recipient->id;
-$message = $fb->entry[0]->messaging[0]-message->text;
+$message = $fb->entry[0]->messaging[0]->message->text;
 $token = "EAAXK3CoMH0QBAM3gZClSKzVcMLnL4uVvvUJG7wQaifTjgN65T2F8SmftMLJyD3uZCky02NA0bLjzEdfzhYc3TUY4HO8WkyqMZBZBdXD0P7BQlzge9CwZAZCZCDAybdGSyyoKJqRF1Rqj5nE723f5v8TqIawkWph7zeJdXxkYqUTnZCz7FHLLY59O";
+
+
+if($message=='en'){
 $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
+}
+if($message=='de'){
+$fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
+}
+
 $data = array(
       'recipient' => array('id' => "$id" ),
       'message' => array('text' => "$fuck")
