@@ -51,7 +51,7 @@ $attachment = array(
 $site =json_encode(array(
          "type" => "web_url",
          "url" => " https://evilinsult.com ",
-         "payload" => "USER_DEFINED_PAYLOAD"
+         "title" => "Evil Insult Generator Homepage"
  ));
 
 $URL= array(
@@ -109,7 +109,7 @@ switch ($message) {
           $data = array(
            'recipient' => array('id' => "$id" ),
            'message' => array(
-                      'attachment' => array($URL)
+                      "attachment" =>$URL
                               )
            );
         break;
