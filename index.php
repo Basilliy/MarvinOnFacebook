@@ -13,7 +13,7 @@
 file_put_contents('fb.txt',file_get_contents('php://input'));
 $fb = file_get_contents('fb.txt');
 $fb = json_decode($fb);
-$id = $fb->entry[0]->messaging[0]->sender->id;
+$id = $fb[entry][0][messaging][0][sender]id;
 $token = 'EAAXK3CoMH0QBAM3gZClSKzVcMLnL4uVvvUJG7wQaifTjgN65T2F8SmftMLJyD3uZCky02NA0bLjzEdfzhYc3TUY4HO8WkyqMZBZBdXD0P7BQlzge9CwZAZCZCDAybdGSyyoKJqRF1Rqj5nE723f5v8TqIawkWph7zeJdXxkYqUTnZCz7FHLLY59O';
 
 $data = array(
