@@ -109,12 +109,7 @@ switch ($message) {
           $data = array(
            'recipient' => array('id' => "$id" ),
            'message' => array(
-                      'attachment' => array(
-                                 "type" => 'template',
-                                 "payload" => array(
-                                      "url" => "https://evilinsult.com"
-                                      )
-                                   )
+                      'attachment' => array($URL)
                               )
            );
         break;
