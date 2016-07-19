@@ -123,12 +123,6 @@ switch ($message) {
       $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
         break;
     default:
-           $data = array(
-           'recipient' => array('id' => "$id" ),
-           'message' => array("text" => "$fuck",
-           "quick_replies" => json_encode($keyboardSet)
-            )
-           );
      SendMessage();
 }
 
