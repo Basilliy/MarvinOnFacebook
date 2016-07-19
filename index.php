@@ -30,13 +30,7 @@ $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
 
 $data = array(
       'recipient' => array('id' => "$id" ),
-      'message' => array('text' => "$fuck",
-                          'quick_replies'=>array(
-                             'content_type'=>'text',
-                             'title'=>'Red',
-                             'payload'=>'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED'
-                           
-                           ))
+      'message' => array('text' => "$fuck")
  );
 
 $options = array(
