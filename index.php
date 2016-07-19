@@ -28,18 +28,19 @@ else{
 $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
 }
 
-$keyboardSet ='[
-      {
-        "content_type":"text",
-        "title":"de",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
-      },
-      {
-        "content_type":"text",
-        "title":"en",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      }
-    ]';
+$buttonEN = array(
+        "content_type" => "text",
+        "title" => "en",
+        "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_EN"
+ );
+
+$buttonDE = array(
+        "content_type" => "text",
+        "title" => "de",
+        "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_EN"
+ );
+$keyboardSet =[$buttonEN, $buttonDE ];
+
 
 $keyboard = array(
          'content_type' => "text",
@@ -85,3 +86,18 @@ file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$tok
                //                        )
                  //                 )
                    //       )
+
+//$keyboardSet ='[
+//      {
+//        "content_type":"text",
+//        "title":"de",
+//        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_EN"
+//      },
+//      {
+//        "content_type":"text",
+//        "title":"en",
+//        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_DE"
+//      }
+//    ]';
+
+
