@@ -148,13 +148,13 @@ switch ($message) {
  $options = array(
           'http' => array(
              'method' => 'POST',
-             'content' => json_encode($date),
+             'content' => json_encode($data),
              'header' => "Content-Type: application/json"
              )
  );
 
 $context = stream_context_create($options);
-file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token",true, $context);
+file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token",true, $data);
 
 
 
