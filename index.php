@@ -29,7 +29,7 @@ $options = array(
              )
  );
 
-$context = stream_context_create($options);
+$context = stream_context_create($data);
 
 file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token", false, $context);
 
