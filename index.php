@@ -75,17 +75,17 @@ $keyboard = array(
  );
 
 
-$data = array(
-     'recipient' => array('id' => "$id" ),
-      'message' => array("text" => "$fuck",
-                         "quick_replies" => json_encode($keyboardSet)
-                          )
-);
-
 //$data = array(
-//      'recipient' => array('id' => "$id" ),
-//      'message' => array("attachment" => $attachment)
-// );
+//     'recipient' => array('id' => "$id" ),
+//      'message' => array("text" => "$fuck",
+//                         "quick_replies" => json_encode($keyboardSet)
+//                          )
+//);
+
+$data = array(
+      'recipient' => array('id' => "$id" ),
+      'message' => array("attachment" => $attachment)
+ );
 
 $options = array(
           'http' => array(
