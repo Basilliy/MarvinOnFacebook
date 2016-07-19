@@ -40,6 +40,7 @@ $buttonDE =json_encode(array(
  ));
  
 $attachment => array(
+         "type" => "template",
          "payload" => array(
                "template_type" => "button",
                "text" => "Language",
