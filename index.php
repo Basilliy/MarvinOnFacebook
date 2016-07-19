@@ -28,18 +28,25 @@ else{
 $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
 }
 
-$buttonEN = array(
+$buttonGenerate = array(
         "content_type" => "text",
-        "title" => "en",
+        "title" => "Generate",
         "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_EN"
  );
 
-$buttonDE = array(
+$buttonLanguage = array(
         "content_type" => "text",
-        "title" => "de",
+        "title" => "Language",
         "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_EN"
  );
-$keyboardSet =[$buttonEN, $buttonDE];
+ 
+ $buttonHomepage = array(
+        "content_type" => "text",
+        "title" => "Homepage",
+        "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_EN"
+ );
+ 
+$keyboardSet =[[$buttonGenerate],[$buttonLanguage, $buttonHomepage]];
 
 
 $keyboard = array(
