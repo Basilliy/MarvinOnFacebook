@@ -150,7 +150,7 @@ switch ($message) {
  $options = array(
           'http' => array(
              'method' => 'POST',
-             'content' => json_encode($date),
+             'content' => json_encode($data),
              'header' => "Content-Type: application/json"
              )
  );
