@@ -28,6 +28,27 @@ else{
 $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
 }
 
+$keyboard =' {
+   "recipient":{
+    "id":"USER_ID"
+  },
+  "message":{
+    "text":"Pick a color:",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"Red",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+      },
+      {
+        "content_type":"text",
+        "title":"Green",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+      }
+    ]
+  }
+}';
+
 $keyboard = array(
          'content_type' => "text",
          'title' => 'Red',
@@ -38,7 +59,7 @@ $keyboard = array(
 $data = array(
       'recipient' => array('id' => "$id" ),
       'message' => array("text" => "Pick a color",
-                         //"quick_replies" => json_encode($keyboard)
+                         "quick_replies" => "$keyboard"
                           )
  );
 
