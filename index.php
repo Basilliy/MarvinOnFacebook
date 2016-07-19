@@ -38,14 +38,34 @@ $buttonDE = array(
          "title" => "de",
          "payload" => "USER_DEFINED_PAYLOAD"
  );
-$attachment => array(
-         "payload" => array(
-               "template_type" => "button",
-               "text" => "Language",
-               "buttons" => [$buttonEN, $buttonDE]
-        )
- 
- );
+//$attachment => array(
+//         "payload" => array(
+//               "template_type" => "button",
+//               "text" => "Language",
+//               "buttons" => [$buttonEN, $buttonDE]
+//        )
+// );
+
+$attachment = '
+      "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"button",
+        "text":"What do you want to do next?",
+        "buttons":[
+          {
+            "type":"web_url",
+            "url":"https://petersapparel.parseapp.com",
+            "title":"Show Website"
+          },
+          {
+            "type":"postback",
+            "title":"Start Chatting",
+            "payload":"USER_DEFINED_PAYLOAD"
+          }
+        ]
+      }
+    }';
 
 $buttonGenerate = array(
         "content_type" => "text",
@@ -83,7 +103,7 @@ $keyboard = array(
 
 $data = array(
       'recipient' => array('id' => "$id" ),
-      'message' => json_encode($attachment)
+      'message' => $attachment
  );
 
 $options = array(
