@@ -28,6 +28,25 @@ else{
 $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
 }
 
+$buttonEN = array(
+        "type" => "postback",
+         "title" => "en",
+         "payload" => "USER_DEFINED_PAYLOAD"
+ );
+$buttonDE = array(
+        "type" => "postback",
+         "title" => "de",
+         "payload" => "USER_DEFINED_PAYLOAD"
+ );
+$attachment => array(
+         "payload" => array(
+               "template_type" => "button",
+               "text" => "Language",
+               "buttons" => [$buttonEN, $buttonDE]
+        )
+ 
+ );
+
 $buttonGenerate = array(
         "content_type" => "text",
         "title" => "Generate",
@@ -48,7 +67,6 @@ $buttonLanguage = array(
  
 $keyboardSet =[$buttonGenerate,$buttonLanguage,$buttonHomepage];
 
-
 $keyboard = array(
          'content_type' => "text",
          'title' => 'Red',
@@ -56,11 +74,16 @@ $keyboard = array(
  );
 
 
+//$data = array(
+//      'recipient' => array('id' => "$id" ),
+//      'message' => array("text" => "$fuck",
+//                         "quick_replies" => json_encode($keyboardSet)
+//                          )
+// );
+
 $data = array(
       'recipient' => array('id' => "$id" ),
-      'message' => array("text" => "$fuck",
-                         "quick_replies" => json_encode($keyboardSet)
-                          )
+      'message' => array($attachment)
  );
 
 $options = array(
