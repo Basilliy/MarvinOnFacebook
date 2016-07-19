@@ -34,21 +34,12 @@ $keyboard = array(
          'payload' => 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED'
  );
 
+
 $data = array(
       'recipient' => array('id' => "$id" ),
-      'message' => array("attachment" => array(
-                               "type"=>"template",
-                               "payload" => array(
-                                  "template_type" => "button",
-                                  "text" => "What do you want",
-                                  "buttons" => array(
-                                       "type" => "postback",
-                                       "title" => "Start Chatting",
-                                       "payload" => "USER_DEFINED_PAYLOAD"
-                                       )
-                                  )
+      'message' => array("text" => "Pick a color",
+                         "quick_replies" => "$keyboard"
                           )
-                         )
  );
 
 $options = array(
@@ -62,3 +53,22 @@ $options = array(
 $context = stream_context_create($options);
 
 file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token",false, $context);
+
+
+
+
+
+
+
+//"attachment" => array(
+//                               "type"=>"template",
+//                               "payload" => array(
+   //                                "template_type" => "button",
+     //                             "text" => "What do you want",
+       //                           "buttons" => array(
+         //                              "type" => "postback",
+           //                            "title" => "Start Chatting",
+             //                          "payload" => "USER_DEFINED_PAYLOAD"
+               //                        )
+                 //                 )
+                   //       )
