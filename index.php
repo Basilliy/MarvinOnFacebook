@@ -46,7 +46,7 @@ $buttonLanguage = array(
         "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_EN"
  );
  
-$keyboardSet =[[$buttonGenerate],[$buttonLanguage],[$buttonHomepage]];
+$keyboardSet =[$buttonGenerate,$buttonLanguage,$buttonHomepage];
 
 
 $keyboard = array(
