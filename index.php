@@ -91,7 +91,15 @@ switch ($message) {
           );
         break;
         case 'Homepage':
-          
+          $data = array(
+           'recipient' => array('id' => "$id" ),
+           'message' => array(
+                      'attachment' => array(
+                                // 'type' => 'url',
+                                 'payload' => array('url' => ' https://evilinsult.com ')
+                                   )
+                              )
+           );
         break;
     case 'en':
       $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
