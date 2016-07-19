@@ -129,7 +129,7 @@ switch ($message) {
            "quick_replies" => json_encode($keyboardSet)
             )
            );
-     //SendMessage($data);
+     SendMessage($data);
 }
 
 //$data = array(
@@ -156,6 +156,18 @@ switch ($message) {
 $context = stream_context_create($options);
 file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token",false, $context);
 
+function SendMessage($date){
+ $options = array(
+          'http' => array(
+             'method' => 'POST',
+             'content' => json_encode($date),
+             'header' => "Content-Type: application/json"
+             )
+ );
+
+$context = stream_context_create($options);
+file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token",false, $context);
+}
 
 
 
