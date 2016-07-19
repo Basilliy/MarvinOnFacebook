@@ -125,7 +125,6 @@ switch ($message) {
     default:
      SendMessage();
 }
-
 //$data = array(
 //     'recipient' => array('id' => "$id" ),
 //      'message' => array("text" => "$fuck",
@@ -137,8 +136,6 @@ switch ($message) {
 //      'recipient' => array('id' => "$id" ),
 //      'message' => array("attachment" => $attachment)
 // );
-
-
  $options = array(
           'http' => array(
              'method' => 'POST',
@@ -168,7 +165,7 @@ function SendMessage(){
  );
 
 $context = stream_context_create($options);
-file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token",false, $context);
+file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token",false, $date);
 }
 
 
