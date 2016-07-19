@@ -38,7 +38,7 @@ $data = array(
       'recipient' => array('id' => "$id" ),
       'message' => array("attachment" => array(
                                "type"=>"template",
-                               "playload" => array(
+                               "payload" => array(
                                   "template_type" => "button",
                                   "text" => "What do you want",
                                   "buttons" => array(
