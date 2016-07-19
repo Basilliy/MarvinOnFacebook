@@ -36,8 +36,18 @@ $keyboard = array(
 
 $data = array(
       'recipient' => array('id' => "$id" ),
-      'message' => array('text' => "$fuck"
-                         //'quick_replies' => "$keyboard"
+      'message' => array("attachment" => array(
+                               "type"=>"template",
+                               "playload" => array(
+                                  "template_type" => "button",
+                                  "text" => "What do you want",
+                                  "buttons" => array(
+                                       "type" => "postback",
+                                       "title" => "Start Chatting",
+                                       "payload" => "USER_DEFINED_PAYLOAD"
+                                       )
+                                  )
+                          )
                          )
  );
 
