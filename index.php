@@ -48,6 +48,21 @@ $attachment = array(
         )
  );
 
+$site =json_encode(array(
+         "type" => "web_url",
+         "url" => " https://evilinsult.com ",
+         "payload" => "USER_DEFINED_PAYLOAD"
+ ));
+
+$URL= array(
+         "type" => "template",
+         "payload" => array(
+               "template_type" => "button",
+               "text" => "Evil Insult Generator Homepage",
+               "buttons" => [$site]
+        )
+ );
+
 $buttonGenerate = array(
         "content_type" => "text",
         "title" => "Generate",
