@@ -47,7 +47,12 @@ $buttonDE = array(
 // );
 
 $attachment = '
-      "attachment":{
+{
+  "recipient":{
+    "id":".$id."
+  },
+  "message":{
+    "attachment":{
       "type":"template",
       "payload":{
         "template_type":"button",
@@ -65,7 +70,9 @@ $attachment = '
           }
         ]
       }
-    }';
+    }
+  }
+}';
 
 $buttonGenerate = array(
         "content_type" => "text",
@@ -101,10 +108,7 @@ $keyboard = array(
 //                          )
 // );
 
-$data = array(
-      'recipient' => array('id' => "$id" ),
-      'message' => $attachment
- );
+$data = array($attachment);
 
 $options = array(
           'http' => array(
