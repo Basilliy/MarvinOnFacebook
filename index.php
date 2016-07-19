@@ -154,7 +154,7 @@ switch ($message) {
  );
 
 $context = stream_context_create($options);
-file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token",true, $data);
+file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token",true, $context);
 
 
 
