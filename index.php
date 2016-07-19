@@ -28,51 +28,24 @@ else{
 $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
 }
 
-$buttonEN = array(
+$buttonEN =json_encode(array(
         "type" => "postback",
          "title" => "en",
          "payload" => "USER_DEFINED_PAYLOAD"
- );
-$buttonDE = array(
+));
+$buttonDE =json_encode(array(
         "type" => "postback",
          "title" => "de",
          "payload" => "USER_DEFINED_PAYLOAD"
+ ));
+ 
+$attachment => array(
+         "payload" => array(
+               "template_type" => "button",
+               "text" => "Language",
+               "buttons" => [$buttonEN, $buttonDE]
+        )
  );
-//$attachment => array(
-//         "payload" => array(
-//               "template_type" => "button",
-//               "text" => "Language",
-//               "buttons" => [$buttonEN, $buttonDE]
-//        )
-// );
-
-$attachment = '
-{
-  "recipient":{
-    "id":".$id."
-  },
-  "message":{
-    "attachment":{
-      "type":"template",
-      "payload":{
-        "template_type":"button",
-        "text":"What do you want to do next?",
-        "buttons":[
-          {
-            "type":"web_url",
-            "url":"https://petersapparel.parseapp.com",
-            "title":"Show Website"
-          },
-          {
-            "type":"postback",
-            "title":"Start Chatting",
-            "payload":"USER_DEFINED_PAYLOAD"
-          }
-        ]
-      }
-    }
-  }
-}';
 
 $buttonGenerate = array(
         "content_type" => "text",
@@ -108,7 +81,10 @@ $keyboard = array(
 //                          )
 // );
 
-$data = array($attachment);
+$data = array(
+      'recipient' => array('id' => "$id" ),
+      'message' => array($attachment)
+ );
 
 $options = array(
           'http' => array(
