@@ -28,7 +28,7 @@ else{
 $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
 }
 
-$keyboard =' {
+$keyboardSet =' {
    "recipient":{
     "id":"USER_ID"
   },
@@ -66,7 +66,7 @@ $data = array(
 $options = array(
           'http' => array(
              'method' => 'POST',
-             'content' => json_encode($data),
+             'content' => "$keyboardSet",
              'header' => "Content-Type: application/json"
              )
  );
