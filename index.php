@@ -59,14 +59,14 @@ $keyboard = array(
 $data = array(
       'recipient' => array('id' => "$id" ),
       'message' => array("text" => "Pick a color",
-                         "quick_replies" => "$keyboard"
+                         //"quick_replies" => "$keyboard"
                           )
  );
 
 $options = array(
           'http' => array(
              'method' => 'POST',
-             'content' => "$keyboardSet",
+             'content' => json_encode($data),
              'header' => "Content-Type: application/json"
              )
  );
