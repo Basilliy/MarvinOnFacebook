@@ -110,7 +110,7 @@ switch ($message) {
            'recipient' => array('id' => "$id" ),
            'message' => array(
                       "attachment" =>$URL
-                      "quick_replies" => json_encode($keyboardSet)
+                      //"quick_replies" => json_encode($keyboardSet)
                               )
            );
         break;
