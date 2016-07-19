@@ -39,7 +39,7 @@ $buttonDE =json_encode(array(
          "payload" => "USER_DEFINED_PAYLOAD"
  ));
  
-$attachment => array(
+$attachment = array(
          "type" => "template",
          "payload" => array(
                "template_type" => "button",
