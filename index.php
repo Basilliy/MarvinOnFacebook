@@ -75,17 +75,51 @@ $keyboard = array(
  );
 
 
-$data = array(
-     'recipient' => array('id' => "$id" ),
-      'message' => array("text" => "$fuck",
-                         "quick_replies" => json_encode($keyboardSet)
-                          )
-);
+switch ($message) {
+        case 'Generate':
+           $data = array(
+           'recipient' => array('id' => "$id" ),
+           'message' => array("text" => "$fuck",
+           "quick_replies" => json_encode($keyboardSet)
+            )
+           );
+        break;
+        case 'Language':
+          $data = array(
+          'recipient' => array('id' => "$id" ),
+          'message' => array("attachment" => $attachment)
+          );
+        break;
+        case 'Homepage':
+          
+        break;
+    case 'en':
+      $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
+        break;
+    case 'de':
+      $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
+        break;
+    default:
+           $data = array(
+           'recipient' => array('id' => "$id" ),
+           'message' => array("text" => "$fuck",
+           "quick_replies" => json_encode($keyboardSet)
+            )
+           );
+}
+
+//$data = array(
+//     'recipient' => array('id' => "$id" ),
+//      'message' => array("text" => "$fuck",
+//                         "quick_replies" => json_encode($keyboardSet)
+//                          )
+//);
 
 //$data = array(
 //      'recipient' => array('id' => "$id" ),
 //      'message' => array("attachment" => $attachment)
 // );
+
 
 $options = array(
           'http' => array(
