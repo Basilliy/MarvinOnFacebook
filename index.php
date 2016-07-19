@@ -98,21 +98,30 @@ switch ($message) {
            "quick_replies" => json_encode($keyboardSet)
             )
            );
+           SendMessage($data)
         break;
         case 'Language':
           $data = array(
           'recipient' => array('id' => "$id" ),
           'message' => array("attachment" => $attachment)
           );
+          SendMessage($data)
         break;
         case 'Homepage':
           $data = array(
            'recipient' => array('id' => "$id" ),
            'message' => array(
                       "attachment" =>$URL
-                     // "quick_replies" => json_encode($keyboardSet)
                               )
            );
+           SendMessage($data)
+           $data = array(
+           'recipient' => array('id' => "$id" ),
+           'message' => array("text" => "$fuck",
+           "quick_replies" => json_encode($keyboardSet)
+            )
+           );
+           SendMessage($data)
         break;
     case 'en':
       $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
@@ -127,6 +136,7 @@ switch ($message) {
            "quick_replies" => json_encode($keyboardSet)
             )
            );
+     SendMessage($data);
 }
 
 //$data = array(
@@ -142,7 +152,9 @@ switch ($message) {
 // );
 
 
-$options = array(
+
+function SendMessage($data){
+ $options = array(
           'http' => array(
              'method' => 'POST',
              'content' => json_encode($data),
@@ -151,8 +163,9 @@ $options = array(
  );
 
 $context = stream_context_create($options);
-
 file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token",true, $context);
+}
+
 
 
 
