@@ -129,7 +129,7 @@ switch ($message) {
            "quick_replies" => json_encode($keyboardSet)
             )
            );
-     SendMessage($data);
+     SendMessage();
 }
 
 //$data = array(
@@ -156,7 +156,15 @@ switch ($message) {
 $context = stream_context_create($options);
 file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token",false, $context);
 
-function SendMessage($date){
+function SendMessage(){
+ 
+           $date = array(
+           'recipient' => array('id' => "$id" ),
+           'message' => array(
+                      "attachment" =>$URL
+                              )
+           );
+ 
  $options = array(
           'http' => array(
              'method' => 'POST',
