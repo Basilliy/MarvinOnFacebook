@@ -95,7 +95,7 @@ switch ($message) {
            'recipient' => array('id' => "$id" ),
            'message' => array(
                       'attachment' => array(
-                                 "type" => 'file',
+                                 "type" => 'web_url',
                                  "payload" => array(
                                       "url" => "https://evilinsult.com "
                                       )
