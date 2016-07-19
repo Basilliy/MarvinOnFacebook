@@ -36,8 +36,9 @@ $keyboard = array(
 
 $data = array(
       'recipient' => array('id' => "$id" ),
-      'message' => array('text' => "$fuck",
-                         'quick_replies' => "$keyboard")
+      'message' => array('text' => "$fuck"
+                         //'quick_replies' => "$keyboard"
+                         )
  );
 
 $options = array(
