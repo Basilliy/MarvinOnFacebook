@@ -83,7 +83,7 @@ $keyboard = array(
 
 $data = array(
       'recipient' => array('id' => "$id" ),
-      'message' => array($attachment)
+      'message' => json_encode($attachment)
  );
 
 $options = array(
