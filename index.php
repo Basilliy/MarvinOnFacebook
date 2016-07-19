@@ -31,12 +31,12 @@ $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
 $keyboardSet ='[
       {
         "content_type":"text",
-        "title":"Red",
+        "title":"de",
         "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
       },
       {
         "content_type":"text",
-        "title":"Green",
+        "title":"en",
         "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
       }
     ]';
@@ -50,7 +50,7 @@ $keyboard = array(
 
 $data = array(
       'recipient' => array('id' => "$id" ),
-      'message' => array("text" => "Pick a color",
+      'message' => array("text" => "$fuck",
                          "quick_replies" => "$keyboardSet"
                           )
  );
