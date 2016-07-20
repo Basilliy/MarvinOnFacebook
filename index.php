@@ -164,8 +164,9 @@ switch ($message) {
 
 $context = stream_context_create($options);
 $contexts = stream_context_create($option);
-$fp = file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token",false, $context);
 file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token",false, $contexts);
+file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token",false, $context);
+
 
 
 
