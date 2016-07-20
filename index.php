@@ -32,6 +32,19 @@ $data = array(
            "quick_replies" => json_encode($keyboardSet)
             )
            );
+           
+ $options = array(
+          'http' => array(
+             'method' => 'POST',
+             'content' => json_encode($data),
+             'header' => "Content-Type: application/json"
+             )
+ );
+
+
+$context = stream_context_create($options);
+
+file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token",false, $context);
 }
 else{
 $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
