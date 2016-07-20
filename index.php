@@ -161,7 +161,7 @@ switch ($message) {
           }
            $data = array(
            'recipient' => array('id' => "$id" ),
-           'message' => array("text" => "$fuck",
+           'message' => array("text" => "Choose language",
            "quick_replies" => json_encode($keyboardLanguage)
             )
            );
