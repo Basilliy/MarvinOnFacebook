@@ -65,7 +65,6 @@ $URL= array(
          "type" => "template",
          "payload" => array(
                "template_type" => "generic",
-               "text" => "Evil Insult Generator Homepage",
                "elements" => [$element]
         )
  );
