@@ -12,16 +12,18 @@
     // Webhook setup request
 
 file_put_contents("fb.txt",file_get_contents("php://input"));
+
 $fb = file_get_contents("fb.txt");
 $fb = json_decode($fb);
 //$fb = json_decode(file_get_contents("php://input"), true);
 $id = $fb->entry[0]->messaging[0]->sender->id;
 $reid = $fb->entry[0]->messaging[0]->recipient->id;
 $message = $fb->entry[0]->messaging[0]->message->text;
+$postback = $fb->entry[0]->messaging[0]->postback->payload;
 $token = "EAAXK3CoMH0QBAM3gZClSKzVcMLnL4uVvvUJG7wQaifTjgN65T2F8SmftMLJyD3uZCky02NA0bLjzEdfzhYc3TUY4HO8WkyqMZBZBdXD0P7BQlzge9CwZAZCZCDAybdGSyyoKJqRF1Rqj5nE723f5v8TqIawkWph7zeJdXxkYqUTnZCz7FHLLY59O";
 
 
-if($message=='en'){
+if($postback=='en'){
 $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
 }
 else{
@@ -31,7 +33,7 @@ $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
 $buttonEN =json_encode(array(
         "type" => "postback",
          "title" => "en",
-         "payload" => "USER_DEFINED_PAYLOAD"
+         "payload" => "engl"
 ));
 $buttonDE =json_encode(array(
         "type" => "postback",
