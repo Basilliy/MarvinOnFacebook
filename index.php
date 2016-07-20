@@ -125,7 +125,7 @@ switch ($message) {
     default:
            $data = array(
            'recipient' => array('id' => "$id" ),
-           'message' => array("text" => "$fuck",
+           'message' => array("text" => "",
            "quick_replies" => json_encode($keyboardSet)
             )
            );
