@@ -113,17 +113,17 @@ $keyboardSet =[$buttonGenerate,$buttonLanguage,$buttonHomepage];
 
 $buttonEN= array(
         "content_type" => "en",
-        "title" => "Generate",
+        "title" => "en",
         "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_EN"
  );
 
 $buttonDE = array(
         "content_type" => "de",
-        "title" => "Language",
+        "title" => "de",
         "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_EN"
  );
  
-$keyboardLanguage=[$buttonEN,$buttonDE];
+$keyboardLanguage = [$buttonEN,$buttonDE];
 
 switch ($message) {
         case 'Generate':
@@ -149,8 +149,8 @@ switch ($message) {
         case 'Language':
           $data = array(
            'recipient' => array('id' => "$id" ),
-           'message' => array("text" => "Language",
-           "quick_replies" => json_encode($keyboardLanguage)
+           'message' => array("text" => "$fuck",
+           "quick_replies" => json_encode($keyboardSet)
             )
            );
         break;
