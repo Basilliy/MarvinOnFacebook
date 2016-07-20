@@ -129,7 +129,12 @@ switch ($message) {
            "quick_replies" => json_encode($keyboardSet)
             )
            );
-       SendMessage();
+           $date = array(
+           'recipient' => array('id' => "$id" ),
+           'message' => array(
+                      "attachment" =>$URL
+                              )
+           );
 }
 //$data = array(
 //     'recipient' => array('id' => "$id" ),
@@ -149,20 +154,7 @@ switch ($message) {
              'header' => "Content-Type: application/json"
              )
  );
-
-$context = stream_context_create($options);
-$fp = file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token",false, $context);
-fpassthru($fp);
-fclose($fp);
-function SendMessage(){
- 
-           $date = array(
-           'recipient' => array('id' => "$this->id" ),
-           'message' => array("text" => "russik"
-            )
-           );
- 
- $options = array(
+ $option = array(
           'http' => array(
              'method' => 'POST',
              'content' => json_encode($date),
@@ -171,8 +163,9 @@ function SendMessage(){
  );
 
 $context = stream_context_create($options);
-file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token",false, $date);
-}
+$contexts = stream_context_create($option);
+$fp = file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token",false, $context);
+file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token",false, $contexts);
 
 
 
