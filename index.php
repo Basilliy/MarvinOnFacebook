@@ -112,13 +112,13 @@ $buttonLanguage = array(
 $keyboardSet =[$buttonGenerate,$buttonLanguage,$buttonHomepage];
 
 $buttonEN= array(
-        "content_type" => "en",
+        "content_type" => "text",
         "title" => "en",
         "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_EN"
  );
 
 $buttonDE = array(
-        "content_type" => "de",
+        "content_type" => "text",
         "title" => "de",
         "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_EN"
  );
