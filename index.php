@@ -19,56 +19,56 @@ $fb = json_decode($fb);
 $id = $fb->entry[0]->messaging[0]->sender->id;
 $reid = $fb->entry[0]->messaging[0]->recipient->id;
 $message = $fb->entry[0]->messaging[0]->message->text;
-$postback = $fb->entry[0]->messaging[0]->postback->payload;
+//$postback = $fb->entry[0]->messaging[0]->postback->payload;
 $token = "EAAXK3CoMH0QBAM3gZClSKzVcMLnL4uVvvUJG7wQaifTjgN65T2F8SmftMLJyD3uZCky02NA0bLjzEdfzhYc3TUY4HO8WkyqMZBZBdXD0P7BQlzge9CwZAZCZCDAybdGSyyoKJqRF1Rqj5nE723f5v8TqIawkWph7zeJdXxkYqUTnZCz7FHLLY59O";
 
 $fp = json_decode(file_get_contents('user.json'), true);
 
-if($postback=='en'){
-$fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
-$data = array(
-           'recipient' => array('id' => "$id" ),
-           'message' => array("text" => "$fuck",
-           "quick_replies" => json_encode($keyboardSet)
-            )
-           );
-           
- $options = array(
-          'http' => array(
-             'method' => 'POST',
-             'content' => json_encode($data),
-             'header' => "Content-Type: application/json"
-             )
- );
+//if($postback=='en'){
+//$fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
+//$data = array(
+//           'recipient' => array('id' => "$id" ),
+//           'message' => array("text" => "$fuck",
+//           "quick_replies" => json_encode($keyboardSet)
+//            )
+//           );
+//           
+// $options = array(
+//          'http' => array(
+//             'method' => 'POST',
+//             'content' => json_encode($data),
+//             'header' => "Content-Type: application/json"
+//             )
+// );
+//
+//
+//$context = stream_context_create($options);
+//
+//file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token",false, $context);
+//}
+//else{
+//$fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
+//}
 
-
-$context = stream_context_create($options);
-
-file_get_contents("https://graph.facebook.com/v2.7/me/messages?access_token=$token",false, $context);
-}
-else{
-$fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
-}
-
-$buttonEN =json_encode(array(
-        "type" => "postback",
-         "title" => "en",
-         "payload" => "en"
-));
-$buttonDE =json_encode(array(
-        "type" => "postback",
-         "title" => "de",
-         "payload" => "USER_DEFINED_PAYLOAD"
- ));
+//$buttonEN =json_encode(array(
+//        "type" => "postback",
+//         "title" => "en",
+//         "payload" => "en"
+//));
+//$buttonDE =json_encode(array(
+//        "type" => "postback",
+//         "title" => "de",
+//         "payload" => "USER_DEFINED_PAYLOAD"
+// ));
  
-$attachment = array(
-         "type" => "template",
-         "payload" => array(
-               "template_type" => "button",
-               "text" => "Language",
-               "buttons" => [$buttonEN, $buttonDE]
-        )
- );
+//$attachment = array(
+//         "type" => "template",
+//         "payload" => array(
+//               "template_type" => "button",
+//               "text" => "Language",
+//               "buttons" => [$buttonEN, $buttonDE]
+//        )
+// );
 
 $site =json_encode(array(
          "type" => "web_url",
@@ -111,14 +111,29 @@ $buttonLanguage = array(
  
 $keyboardSet =[$buttonGenerate,$buttonLanguage,$buttonHomepage];
 
-$keyboard = array(
-         'content_type' => "text",
-         'title' => 'Red',
-         'payload' => 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED'
+$buttonEN= array(
+        "content_type" => "en",
+        "title" => "Generate",
+        "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_EN"
  );
+
+$buttonDE = array(
+        "content_type" => "de",
+        "title" => "Language",
+        "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_EN"
+ );
+ 
+$keyboardLanguage=[$buttonEN,$buttonDE];
 
 switch ($message) {
         case 'Generate':
+          $lang = checkLanguage($fp,$id)
+          if($lang =='en'){
+          $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
+          }
+          if($lang =='de'){
+          $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
+          }
            $data = array(
            'recipient' => array('id' => "$id" ),
            'message' => array("text" => "$fuck",
@@ -128,9 +143,11 @@ switch ($message) {
         break;
         case 'Language':
           $data = array(
-          'recipient' => array('id' => "$id" ),
-          'message' => array("attachment" => $attachment)
-          );
+           'recipient' => array('id' => "$id" ),
+           'message' => array("text" => "$fuck",
+           "quick_replies" => json_encode($keyboardLanguage)
+            )
+           );
           //SendMessage($data);
         break;
         case 'Homepage':
@@ -151,28 +168,84 @@ switch ($message) {
      if (checkUser($fp, $id) != false) {
             foreach ( $fp as $key=> $value) {
               if($key==$chat_id){
-                 $fp[$key] = $postback;
+                 $fp[$key] = $message;
               }
              }
              $arr3 = json_encode($fp);
              file_put_contents('user.json', $arr3);
-             language($id,$postback);
-          }
-          else{
-            AddUser($id,$fp,$postback);
-          }
-        break;
-    case 'de':
-      $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
-        break;
-    default:
-      $data = array(
+             $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
+             $data = array(
            'recipient' => array('id' => "$id" ),
            'message' => array("text" => "$fuck",
            "quick_replies" => json_encode($keyboardSet)
             )
-           );
+          }
+          else{
+            AddUser($id,$fp,$message);
+          }
+        break;
+    case 'de':
+      if (checkUser($fp, $id) != false) {
+            foreach ( $fp as $key=> $value) {
+              if($key==$chat_id){
+                 $fp[$key] = $message;
+              }
+             }
+             $arr3 = json_encode($fp);
+             file_put_contents('user.json', $arr3);
+             $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
+             $data = array(
+           'recipient' => array('id' => "$id" ),
+           'message' => array("text" => "$fuck",
+           "quick_replies" => json_encode($keyboardSet)
+            )
+          }
+          else{
+            AddUser($id,$fp,$message);
+          }
+        break;
+    default:
+      $lang = checkLanguage($fp,$id)
+      if($lang =='en'){
+        $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
+       }
+      if($lang =='de'){
+        $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
+      }
+      $data = array(
+       'recipient' => array('id' => "$id" ),
+       'message' => array("text" => "$fuck",
+        "quick_replies" => json_encode($keyboardSet)
+        )
+        );
 }
+
+function checkUser($mass,$chat_id){
+    $is = false;
+    foreach ( $mass as $key=> $value) {
+        if($key==$chat_id){
+            $is = true;
+        }
+    }
+    return $is;
+}
+function AddUser($chat_id,$mass,$message){
+    $mass[$chat_id] = $message;
+    $arr3 = json_encode($mass);
+    file_put_contents('user.json', $arr3);
+}
+function checkLanguage($mass,$chat_id){
+    $language = 'en';
+    foreach ( $mass as $key=> $value) {
+        if($key==$chat_id){
+            $language = $value;
+        }
+    }
+    return $language;
+}
+
+
+
 //$data = array(
 //     'recipient' => array('id' => "$id" ),
 //      'message' => array("text" => "$fuck",
