@@ -54,12 +54,19 @@ $site =json_encode(array(
          "title" => "Evil Insult Generator Homepage"
  ));
 
+$element = array(
+            "title" => "Evil Insult Generator Homepage",
+            "image_url" => "",
+            "subtitle" => "Click",
+            "buttons" => [$site]
+             );
+
 $URL= array(
          "type" => "template",
          "payload" => array(
-               "template_type" => "button",
+               "template_type" => "generic",
                "text" => "Evil Insult Generator Homepage",
-               "buttons" => [$site]
+               "elements" => [$element]
         )
  );
 
