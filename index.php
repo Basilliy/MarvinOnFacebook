@@ -149,7 +149,7 @@ switch ($message) {
         case 'Language':
           $data = array(
            'recipient' => array('id' => "$id" ),
-           'message' => array("text" => "$fuck",
+           'message' => array("text" => "Language",
            "quick_replies" => json_encode($keyboardLanguage)
             )
            );
