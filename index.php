@@ -147,7 +147,19 @@ switch ($message) {
            );
         break;
         case 'Language':
-          $data = array(
+          $lang = 'en';
+          foreach ( $fp as $key=> $value) {
+          if($key==$id){
+          $lang = $value;
+          }
+          }
+          if($lang =='en'){
+          $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
+          }
+          if($lang =='de'){
+          $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
+          }
+           $data = array(
            'recipient' => array('id' => "$id" ),
            'message' => array("text" => "$fuck",
            "quick_replies" => json_encode($keyboardSet)
