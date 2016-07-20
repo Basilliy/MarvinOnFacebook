@@ -148,7 +148,6 @@ switch ($message) {
         break;
         case 'Language':
           $lang = 'en';
-
            $data = array(
            'recipient' => array('id' => "$id" ),
            'message' => array("text" => "Choose language",
@@ -189,19 +188,19 @@ switch ($message) {
              $data = array(
            'recipient' => array('id' => "$id" ),
            'message' => array("text" => "$fuck",
-           "quick_replies" => json_encode($keyboardLanguage)
+           "quick_replies" => json_encode($keyboardSet)
             )
            );
           }
           else{
            $fp[$id] = $message;
-           $arr3 = json_encode($mass);
+           $arr3 = json_encode($fp);
            file_put_contents('user.json', $arr3);
            $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
            $data = array(
            'recipient' => array('id' => "$id" ),
            'message' => array("text" => "$fuck",
-           "quick_replies" => json_encode($keyboardLanguage)
+           "quick_replies" => json_encode($keyboardSet)
             )
            );
           }
@@ -225,19 +224,19 @@ switch ($message) {
              $data = array(
            'recipient' => array('id' => "$id" ),
            'message' => array("text" => "$fuck",
-           "quick_replies" => json_encode($keyboardLanguage)
+           "quick_replies" => json_encode($keyboardSet)
             )
            );
           }
           else{
            $fp[$id] = $message;
-           $arr3 = json_encode($mass);
+           $arr3 = json_encode($fp);
            file_put_contents('user.json', $arr3);
            $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
            $data = array(
            'recipient' => array('id' => "$id" ),
            'message' => array("text" => "$fuck",
-           "quick_replies" => json_encode($keyboardLanguage)
+           "quick_replies" => json_encode($keyboardSet)
             )
            );
           }
