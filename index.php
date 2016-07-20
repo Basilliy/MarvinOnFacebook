@@ -26,6 +26,12 @@ $fp = json_decode(file_get_contents('user.json'), true);
 
 if($postback=='en'){
 $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
+$data = array(
+           'recipient' => array('id' => "$id" ),
+           'message' => array("text" => "$fuck",
+           "quick_replies" => json_encode($keyboardSet)
+            )
+           );
 }
 else{
 $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
@@ -98,22 +104,6 @@ $keyboard = array(
          'payload' => 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED'
  );
 
-if(($postback=='en')||($postback=='de')){
- if (checkUser($fp, $id) != false) {
-            foreach ( $fp as $key=> $value) {
-              if($key==$chat_id){
-                 $fp[$key] = $postback;
-              }
-             }
-             $arr3 = json_encode($fp);
-             file_put_contents('user.json', $arr3);
-          }
-          else{
-            AddUser($id,$fp,$postback);
-          }
-          
-}
-
 switch ($message) {
         case 'Generate':
            $data = array(
@@ -182,8 +172,6 @@ switch ($message) {
 //      'message' => array("attachment" => $attachment)
 // );
 
-language($chat_id);
-
  $options = array(
           'http' => array(
              'method' => 'POST',
@@ -198,45 +186,6 @@ language($chat_id);
              'header' => "Content-Type: application/json"
              )
  );
-
-
-function checkUser($mass,$chat_id){
-    $is = false;
-    foreach ( $mass as $key=> $value) {
-        if($key==$chat_id){
-            $is = true;
-        }
-    }
-    return $is;
-}
-
-function AddUser($chat_id,$mass,$message){
-    $mass[$chat_id] = $message;
-    $arr3 = json_encode($mass);
-    file_put_contents('user.json', $arr3);
-    if($message =='en'){
-        english($chat_id);
-    }
-    if($message =='de'){
-        deutch($chat_id);
-    }
-}
-function checkLanguage($mass,$chat_id){
-    $language = 'en';
-    foreach ( $mass as $key=> $value) {
-        if($key==$chat_id){
-            $language = $value;
-        }
-    }
-    if($language =='en'){
-        english($chat_id);
-    }
-    if($language =='de'){
-        deutch($chat_id);
-    }
-}
-
-
 
 
 $context = stream_context_create($options);
