@@ -56,7 +56,7 @@ $site =json_encode(array(
 
 $element = array(
             "title" => "Evil Insult Generator Homepage",
-            "image_url" => "",
+            "image_url" => "https://martinfacebook.herokuapp.com/image.jpg",
             "subtitle" => "Click",
             "buttons" => [$site]
              );
