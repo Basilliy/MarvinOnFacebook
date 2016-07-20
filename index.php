@@ -108,21 +108,6 @@ switch ($message) {
           //SendMessage($data);
         break;
         case 'Homepage':
-          $data = array(
-           'recipient' => array('id' => "$id" ),
-           'message' => array(
-                      "attachment" =>$URL
-                              )
-           );
-          // SendMessage($data);
-        break;
-    case 'en':
-      $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
-        break;
-    case 'de':
-      $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
-        break;
-    default:
            $data = array(
            'recipient' => array('id' => "$id" ),
            'message' => array("text" => " ",
@@ -134,6 +119,20 @@ switch ($message) {
            'message' => array(
                       "attachment" =>$URL
                               )
+           );
+        break;
+    case 'en':
+      $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
+        break;
+    case 'de':
+      $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
+        break;
+    default:
+      $data = array(
+           'recipient' => array('id' => "$id" ),
+           'message' => array("text" => "$fuck",
+           "quick_replies" => json_encode($keyboardSet)
+            )
            );
 }
 //$data = array(
