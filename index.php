@@ -87,11 +87,10 @@ switch ($message) {
           if($lang =='de'){
           $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
           }
-          //добавить ещё один оператор if, для сравнения с добавленным языком(например if($lang =='ru'))
-          // после добавить новое выражение для переменной fuck например: $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=ru');
-          //                                                                                                                                          ^
-          //                                                                                                                            Внимание сюда |         
-          
+          //You should add a new operator "if" for comparing with language which was added (for example  if($lang =='ru'))
+          // After that you should add a new expression for the variable "fuck" (for example $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=ru')                                                                                                                           Внимание сюда |         
+          //                                                                                                                                                             ^
+          //                                                                                                                                                 look here   |
            $data = array(
            'recipient' => array('id' => "$id" ),
            'message' => array("text" => "$fuck",
@@ -194,12 +193,12 @@ switch ($message) {
            );
           }
         break;
-        //добавить новый case с указание аббревиатуры нужного языка(например ru, fr, pt) 
-        // после скопировать уже существующий case и изменить в нём: 
-        //выражение присваиваемое переменной fuck в зависимости от нужного языка
-        //$fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=ru');
-          //                                                                          ^  
-          //                                                           Внимание сюда  |
+//You should add a new "case" with description abbreviation needed language  (for example ru, fr, pt)
+// after you should copy some case which was created before and you should change something therre
+// the expression assigned to a variable "fuck", depending on the desired language
+// (for example $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=ru')
+//                                                                                          ^
+//                                                                              Look here   |
           default:
           $lang = 'en';
           foreach ( $mass as $key=> $value) {
@@ -212,11 +211,11 @@ switch ($message) {
           }
           if($lang =='de'){
           $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
-          }
-          //добавить ещё один оператор if, для сравнения с добавленным языком(например if($lang =='ru'))
-          // после добавить новое выражение для переменной fuck: $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=ru');
-          //                                                                                                                                 ^
-          //                                                                                                                   Внимание сюда | 
+          }                                  
+          // You shouldd add a new operator "if" for comparing with language which was added (for example if($lang =='ru'))
+          // after you sholud add a new expression for a variabe "fuck":  $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=ru);
+          //                                                                                                                                          ^
+          //                                                                                                                           Look here      |
            $data = array(
            'recipient' => array('id' => "$id" ),
            'message' => array("text" => "$fuck",
