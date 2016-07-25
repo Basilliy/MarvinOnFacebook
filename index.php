@@ -42,19 +42,19 @@ $URL= array(
 $buttonGenerate = array(
         "content_type" => "text",
         "title" => "Generate",
-        "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_EN"
+        "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_buttonGenerate"
  );
 
 $buttonLanguage = array(
         "content_type" => "text",
         "title" => "Language",
-        "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_EN"
+        "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_buttonLanguage"
  );
  
  $buttonHomepage = array(
         "content_type" => "text",
         "title" => "Homepage",
-        "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_EN"
+        "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_buttonHomepage"
  );
  
 $keyboardSet =[$buttonGenerate,$buttonLanguage,$buttonHomepage];
@@ -68,10 +68,15 @@ $buttonEN= array(
 $buttonDE = array(
         "content_type" => "text",
         "title" => "de",
-        "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_EN"
+        "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_DE"
  );
- 
-$keyboardLanguage = [$buttonEN,$buttonDE];
+ //Create new button for keyboardLanguage, for example: 
+ //$buttonRU = array(
+ // "content_type" => "text",
+ //"title" => "ru",
+ //"payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RU"
+ // );
+$keyboardLanguage = [$buttonEN,$buttonDE/*add button here, for example: $buttonRU */];
 
 switch ($message) {
         case 'Generate':
