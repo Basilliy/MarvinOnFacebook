@@ -111,6 +111,45 @@ $buttonSW = array(
  // );
 $keyboardLanguage = [$buttonEN,$buttonDE,$buttonRU,$buttonFR,$buttonES,$buttonPT,$buttonCN,$buttonSW/*add button here, for example: $buttonRU */];
 
+
+if(($message=='en')||($message=='de')||($message=='ru')||($message=='fr')||($message=='es')||($message=='pt')||($message=='cn')||($message=='sw')){
+ $is = false;
+        foreach ( $fp as $key=> $value) {
+        if($key==$chat_id){
+            $is = true;
+         }
+        }
+        if ($is!= false) {
+           foreach ( $fp as $key=> $value) {
+             if($key==$chat_id){
+                $fp[$key] = $message;
+             }
+            }
+             $arr3 = json_encode($fp);
+             file_put_contents('user.json', $arr3);
+             $fuck = "Language successfully changed to:".$message;
+             $data = array(
+           'recipient' => array('id' => "$id" ),
+           'message' => array("text" => "$fuck",
+           "quick_replies" => json_encode($keyboardSet)
+            )
+           );
+          }
+          else{
+           $fp[$id] = $message;
+           $arr3 = json_encode($fp);
+           file_put_contents('user.json', $arr3);
+           $fuck = "Language successfully changed to:".$message;
+           $data = array(
+           'recipient' => array('id' => "$id" ),
+           'message' => array("text" => "$fuck",
+           "quick_replies" => json_encode($keyboardSet)
+            )
+           );
+          }
+          $message = "none";
+}
+
 switch ($message) {
         case 'Generate':
           $lang = 'en';
@@ -119,12 +158,7 @@ switch ($message) {
           $lang = $value;
           }
           }
-          if($lang =='en'){
-          $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
-          }
-          if($lang =='de'){
-          $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
-          }
+          $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang='.$lang);
           //You should add a new operator "if" for comparing with language which was added (for example  if($lang =='ru'))
           // After that you should add a new expression for the variable "fuck" (for example $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=ru')                                                                                                                           Внимание сюда |         
           //                                                                                                                                                             ^
@@ -159,293 +193,8 @@ switch ($message) {
                               )
            );
         break;
-        case 'en':
-        $is = false;
-        foreach ( $fp as $key=> $value) {
-        if($key==$chat_id){
-            $is = true;
-         }
-        }
-        if ($is!= false) {
-           foreach ( $fp as $key=> $value) {
-             if($key==$chat_id){
-                $fp[$key] = $message;
-             }
-            }
-             $arr3 = json_encode($fp);
-             file_put_contents('user.json', $arr3);
-             $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
-             $data = array(
-           'recipient' => array('id' => "$id" ),
-           'message' => array("text" => "$fuck",
-           "quick_replies" => json_encode($keyboardSet)
-            )
-           );
-          }
-          else{
-           $fp[$id] = $message;
-           $arr3 = json_encode($fp);
-           file_put_contents('user.json', $arr3);
-           $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
-           $data = array(
-           'recipient' => array('id' => "$id" ),
-           'message' => array("text" => "$fuck",
-           "quick_replies" => json_encode($keyboardSet)
-            )
-           );
-          }
-        break;
-    case 'de':
-      $is = false;
-        foreach ( $fp as $key=> $value) {
-        if($key==$chat_id){
-            $is = true;
-         }
-        }
-        if ($is!= false) {
-           foreach ( $fp as $key=> $value) {
-             if($key==$chat_id){
-                $fp[$key] = $message;
-             }
-            }
-             $arr3 = json_encode($fp);
-             file_put_contents('user.json', $arr3);
-             $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
-             $data = array(
-           'recipient' => array('id' => "$id" ),
-           'message' => array("text" => "$fuck",
-           "quick_replies" => json_encode($keyboardSet)
-            )
-           );
-          }
-          else{
-           $fp[$id] = $message;
-           $arr3 = json_encode($fp);
-           file_put_contents('user.json', $arr3);
-           $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
-           $data = array(
-           'recipient' => array('id' => "$id" ),
-           'message' => array("text" => "$fuck",
-           "quick_replies" => json_encode($keyboardSet)
-            )
-           );
-          }
-        break;
-        case 'ru':
-      $is = false;
-        foreach ( $fp as $key=> $value) {
-        if($key==$chat_id){
-            $is = true;
-         }
-        }
-        if ($is!= false) {
-           foreach ( $fp as $key=> $value) {
-             if($key==$chat_id){
-                $fp[$key] = $message;
-             }
-            }
-             $arr3 = json_encode($fp);
-             file_put_contents('user.json', $arr3);
-             $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
-             $data = array(
-           'recipient' => array('id' => "$id" ),
-           'message' => array("text" => "$fuck",
-           "quick_replies" => json_encode($keyboardSet)
-            )
-           );
-          }
-          else{
-           $fp[$id] = $message;
-           $arr3 = json_encode($fp);
-           file_put_contents('user.json', $arr3);
-           $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
-           $data = array(
-           'recipient' => array('id' => "$id" ),
-           'message' => array("text" => "$fuck",
-           "quick_replies" => json_encode($keyboardSet)
-            )
-           );
-          }
-        break;
-        case 'fr':
-      $is = false;
-        foreach ( $fp as $key=> $value) {
-        if($key==$chat_id){
-            $is = true;
-         }
-        }
-        if ($is!= false) {
-           foreach ( $fp as $key=> $value) {
-             if($key==$chat_id){
-                $fp[$key] = $message;
-             }
-            }
-             $arr3 = json_encode($fp);
-             file_put_contents('user.json', $arr3);
-             $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
-             $data = array(
-           'recipient' => array('id' => "$id" ),
-           'message' => array("text" => "$fuck",
-           "quick_replies" => json_encode($keyboardSet)
-            )
-           );
-          }
-          else{
-           $fp[$id] = $message;
-           $arr3 = json_encode($fp);
-           file_put_contents('user.json', $arr3);
-           $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
-           $data = array(
-           'recipient' => array('id' => "$id" ),
-           'message' => array("text" => "$fuck",
-           "quick_replies" => json_encode($keyboardSet)
-            )
-           );
-          }
-        break;
-        case 'es':
-      $is = false;
-        foreach ( $fp as $key=> $value) {
-        if($key==$chat_id){
-            $is = true;
-         }
-        }
-        if ($is!= false) {
-           foreach ( $fp as $key=> $value) {
-             if($key==$chat_id){
-                $fp[$key] = $message;
-             }
-            }
-             $arr3 = json_encode($fp);
-             file_put_contents('user.json', $arr3);
-             $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
-             $data = array(
-           'recipient' => array('id' => "$id" ),
-           'message' => array("text" => "$fuck",
-           "quick_replies" => json_encode($keyboardSet)
-            )
-           );
-          }
-          else{
-           $fp[$id] = $message;
-           $arr3 = json_encode($fp);
-           file_put_contents('user.json', $arr3);
-           $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
-           $data = array(
-           'recipient' => array('id' => "$id" ),
-           'message' => array("text" => "$fuck",
-           "quick_replies" => json_encode($keyboardSet)
-            )
-           );
-          }
-        break;
-        case 'pt':
-      $is = false;
-        foreach ( $fp as $key=> $value) {
-        if($key==$chat_id){
-            $is = true;
-         }
-        }
-        if ($is!= false) {
-           foreach ( $fp as $key=> $value) {
-             if($key==$chat_id){
-                $fp[$key] = $message;
-             }
-            }
-             $arr3 = json_encode($fp);
-             file_put_contents('user.json', $arr3);
-             $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
-             $data = array(
-           'recipient' => array('id' => "$id" ),
-           'message' => array("text" => "$fuck",
-           "quick_replies" => json_encode($keyboardSet)
-            )
-           );
-          }
-          else{
-           $fp[$id] = $message;
-           $arr3 = json_encode($fp);
-           file_put_contents('user.json', $arr3);
-           $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
-           $data = array(
-           'recipient' => array('id' => "$id" ),
-           'message' => array("text" => "$fuck",
-           "quick_replies" => json_encode($keyboardSet)
-            )
-           );
-          }
-        break;
-        case 'cn':
-      $is = false;
-        foreach ( $fp as $key=> $value) {
-        if($key==$chat_id){
-            $is = true;
-         }
-        }
-        if ($is!= false) {
-           foreach ( $fp as $key=> $value) {
-             if($key==$chat_id){
-                $fp[$key] = $message;
-             }
-            }
-             $arr3 = json_encode($fp);
-             file_put_contents('user.json', $arr3);
-             $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
-             $data = array(
-           'recipient' => array('id' => "$id" ),
-           'message' => array("text" => "$fuck",
-           "quick_replies" => json_encode($keyboardSet)
-            )
-           );
-          }
-          else{
-           $fp[$id] = $message;
-           $arr3 = json_encode($fp);
-           file_put_contents('user.json', $arr3);
-           $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
-           $data = array(
-           'recipient' => array('id' => "$id" ),
-           'message' => array("text" => "$fuck",
-           "quick_replies" => json_encode($keyboardSet)
-            )
-           );
-          }
-        break;
-        case 'sw':
-      $is = false;
-        foreach ( $fp as $key=> $value) {
-        if($key==$chat_id){
-            $is = true;
-         }
-        }
-        if ($is!= false) {
-           foreach ( $fp as $key=> $value) {
-             if($key==$chat_id){
-                $fp[$key] = $message;
-             }
-            }
-             $arr3 = json_encode($fp);
-             file_put_contents('user.json', $arr3);
-             $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
-             $data = array(
-           'recipient' => array('id' => "$id" ),
-           'message' => array("text" => "$fuck",
-           "quick_replies" => json_encode($keyboardSet)
-            )
-           );
-          }
-          else{
-           $fp[$id] = $message;
-           $arr3 = json_encode($fp);
-           file_put_contents('user.json', $arr3);
-           $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
-           $data = array(
-           'recipient' => array('id' => "$id" ),
-           'message' => array("text" => "$fuck",
-           "quick_replies" => json_encode($keyboardSet)
-            )
-           );
-          }
+        
+        case 'none':
         break;
 //You should add a new "case" with description abbreviation needed language  (for example ru, fr, pt)
 // after you should copy some case which was created before and you should change something therre
@@ -460,12 +209,7 @@ switch ($message) {
           $lang = $value;
           }
           }
-          if($lang =='en'){
-          $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
-          }
-          if($lang =='de'){
-          $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
-          }                                  
+          $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang='.$lang);
           // You shouldd add a new operator "if" for comparing with language which was added (for example if($lang =='ru'))
           // after you sholud add a new expression for a variabe "fuck":  $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=ru);
           //                                                                                                                                          ^
