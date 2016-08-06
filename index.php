@@ -109,7 +109,7 @@ $buttonSW = array(
  //"title" => "ru",
  //"payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RU"
  // );
-$keyboardLanguage = [$buttonEN,$buttonDE,$buttonRU,$buttonFR,$buttonES,$buttonPT,$buttonCN,$buttonSW/*add button here, for example: $buttonRU */];
+$keyboardLanguage = [[$buttonEN,$buttonDE,$buttonRU,$buttonFR],[$buttonES,$buttonPT,$buttonCN,$buttonSW]/*add button here, for example: $buttonRU */];
 
 switch ($message) {
         case 'Generate':
