@@ -70,13 +70,46 @@ $buttonDE = array(
         "title" => "de",
         "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_DE"
  );
+ $buttonES= array(
+        "content_type" => "text",
+        "title" => "es",
+        "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_EN"
+ );
+
+$buttonPT = array(
+        "content_type" => "text",
+        "title" => "pt",
+        "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_DE"
+ );
+ $buttonRU= array(
+        "content_type" => "text",
+        "title" => "ru",
+        "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_EN"
+ );
+
+$buttonFR = array(
+        "content_type" => "text",
+        "title" => "fr",
+        "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_DE"
+ );
+ $buttonCN= array(
+        "content_type" => "text",
+        "title" => "cn",
+        "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_EN"
+ );
+
+$buttonSW = array(
+        "content_type" => "text",
+        "title" => "sw",
+        "payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_DE"
+ );
  //Create new button for keyboardLanguage, for example: 
  //$buttonRU = array(
  // "content_type" => "text",
  //"title" => "ru",
  //"payload" => "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RU"
  // );
-$keyboardLanguage = [$buttonEN,$buttonDE/*add button here, for example: $buttonRU */];
+$keyboardLanguage = [[$buttonEN,$buttonDE],[$buttonES,$buttonPT]/*add button here, for example: $buttonRU */];
 
 switch ($message) {
         case 'Generate':
