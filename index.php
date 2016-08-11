@@ -26,7 +26,7 @@ $site =json_encode(array(
 
 $element = array(
             "title" => "Evil Insult Generator Homepage",
-            "image_url" => "https://martinfacebook.herokuapp.com/image.jpg",
+            "image_url" => "https://martinfacebook.herokuapp.com/evil.jpg",
             "subtitle" => "Click",
             "buttons" => [$site]
              );
@@ -127,7 +127,7 @@ if(($message=='en')||($message=='de')||($message=='ru')||($message=='fr')||($mes
             }
              $arr3 = json_encode($fp);
              file_put_contents('user.json', $arr3);
-             $fuck = "Language successfully changed to:".$message;
+             $fuck = "Language successfully changed to : ".$message;
              $data = array(
            'recipient' => array('id' => "$id" ),
            'message' => array("text" => "$fuck",
