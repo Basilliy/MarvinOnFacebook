@@ -14,7 +14,7 @@ $id = $fb->entry[0]->messaging[0]->sender->id;
 $reid = $fb->entry[0]->messaging[0]->recipient->id;
 $message = $fb->entry[0]->messaging[0]->message->text;
 
-$token = "EAAXK3CoMH0QBAM3gZClSKzVcMLnL4uVvvUJG7wQaifTjgN65T2F8SmftMLJyD3uZCky02NA0bLjzEdfzhYc3TUY4HO8WkyqMZBZBdXD0P7BQlzge9CwZAZCZCDAybdGSyyoKJqRF1Rqj5nE723f5v8TqIawkWph7zeJdXxkYqUTnZCz7FHLLY59O";
+$token = "EAADavTA9leABAI9TntPIzrGQZBV5j1cBK1ugXmMdeKaBQQdTopcpdjn8QFoy1gwGCYT8NbWfOhdJ1f2gk8J5z9UUMZAeIQFMIR7ZBAe2X27sGcVTK6Bmxu1AtQBLVkELugZCeRYIHmWwxer6XWDQ44Kekg6FxJD3XEafc2FfYgZDZD";
 
 $fp = json_decode(file_get_contents('user.json'), true);
 
